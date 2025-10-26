@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "es2024",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "lib": [ "es2024" ],
+    "types": []
+  },
+  "files": [
+    "include/Enum.ts",
+    "include/Type.ts",
+    "include/Library.ts",
+    "src/Public.ts",
+    "src/Hero.ts",
+    "src/Item.ts",
+    "src/Magic.ts",
+    "src/Enemy.ts",
+    "src/Poison.ts"
+  ],
+  "include": [
+    "src/Scene/*.ts"
+  ]
+}
