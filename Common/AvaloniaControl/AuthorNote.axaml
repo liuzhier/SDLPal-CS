@@ -1,0 +1,27 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AvaloniaControl.AuthorNote">
+    <UserControl.Styles>
+        <Style Selector="Label">
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+        <Style Selector="Grid > Border">
+            <Setter Property="Margin" Value="8, 4" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="Pink" />
+        </Style>
+    </UserControl.Styles>
+    <Grid>
+        <Border Grid.Row="0">
+            <Grid RowDefinitions="34*, 33*, 33*">
+                <Label Grid.Row="0" Foreground="Red">Author's Note</Label>
+                <Label Grid.Row="1" Foreground="Purple">This game mod tool is completely free. It is strictly prohibited to use it for commercial purposes.</Label>
+                <Label Grid.Row="2" Foreground="Purple">Otherwise, the consequences will be borne by yourself! The author assumes no responsibility for any consequences!</Label>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

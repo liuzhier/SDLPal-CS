@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <ItemGroup>
+        <None Include="../LICENSE" Pack="true" PackagePath="\" />
+        <None Include="README.md" Pack="true" Visible="true" PackagePath="\" />
+
+        <None Include="lib\win-x64\*">
+            <Pack>True</Pack>
+            <PackagePath>runtimes\win-x64\native\</PackagePath>
+        </None>
+        <None Include="lib\win-x86\*">
+            <Pack>True</Pack>
+            <PackagePath>runtimes\win-x86\native\</PackagePath>
+        </None>
+        <None Include="lib\win-arm64\*">
+            <Pack>True</Pack>
+            <PackagePath>runtimes\win-arm64\native\</PackagePath>
+        </None>
+    </ItemGroup>
+
+    <Target Name="CopyNativeLibrariesToRuntimeDirs" BeforeTargets="Build">
+        <ItemGroup>
+            <NativeLibs Include="lib\**\*" />
+        </ItemGroup>
+        <Copy SourceFiles="@(NativeLibs)" DestinationFiles="@(NativeLibs->'$(OutputPath)runtimes\%(RecursiveDir)native\%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+    </Target>
+
+    <Target Name="CopyPlatformSpecificDll" AfterTargets="Publish">
+        <Copy SourceFiles="$(LibraryPath)"
+              DestinationFiles="$(PublishDir)$(LibraryName)"
+              Condition="Exists('$(LibraryPath)')"
+              SkipUnchangedFiles="true" />
+    </Target>
+
+    <Target Name="CopyNativeDllToPublishRoot" BeforeTargets="Publish">
+        <Copy SourceFiles="$(NativeDllSourcePath)" DestinationFiles="$(PublishDir)PalLibrary.dll" Condition="Exists('$(NativeDllSourcePath)')" />
+    </Target>
+
+</Project>

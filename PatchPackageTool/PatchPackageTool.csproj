@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net10.0-windows</TargetFramework>
+        <RootNamespace></RootNamespace>
+        <ApplicationManifest>..\app.manifest</ApplicationManifest>
+        <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+        <AssemblyName>PalPatchPackageTools</AssemblyName>
+        <PublishAot>false</PublishAot>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Common\Common.csproj" />
+        <PackageReference Include="Avalonia" Version="11.3.9" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.3.9" />
+        <PackageReference Include="Avalonia.Diagnostics" Version="11.3.9" />
+        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.9" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.9" />
+    </ItemGroup>
+</Project>

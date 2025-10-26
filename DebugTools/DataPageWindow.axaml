@@ -1,0 +1,21 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" x:Class="PalDebugTools.DataPageWindow"
+        Width="800" Height="600" CanResize="False" ShowInTaskbar="False"
+        Title="DataPage" Background="Transparent" SystemDecorations="None" >
+    <Window.Styles>
+        <Style Selector="Image">
+            <Setter Property="Stretch" Value="Fill" />
+            <Setter Property="BlendMode" Value="Source" />
+            <Setter Property="UseLayoutRounding" Value="True" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="StretchDirection" Value="Both" />
+        </Style>
+    </Window.Styles>
+    <Grid Background="#3Fff0000">
+        <Image x:Name="Video_Image" RenderOptions.BitmapInterpolationMode="None" />
+    </Grid>
+</Window>

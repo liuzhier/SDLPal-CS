@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <RootNamespace></RootNamespace>
+        <ApplicationManifest>..\app.manifest</ApplicationManifest>
+        <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+        <AssemblyName>PalDebugTools</AssemblyName>
+        <PublishAot>false</PublishAot>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="Resources\FontData">
+            <LogicalName>FontData</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Resources\FontWidth">
+            <LogicalName>FontWidth</LogicalName>
+        </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+        <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+        <PackageReference Include="Avalonia" Version="11.3.9" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.3.9" />
+        <PackageReference Include="Avalonia.Diagnostics" Version="11.3.9" />
+        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.9" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.9" />
+        <PackageReference Include="Vanara.PInvoke.Kernel32" Version="4.2.1" />
+        <PackageReference Include="Vanara.PInvoke.User32" Version="4.2.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Common\Common.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Resources\" />
+    </ItemGroup>
+</Project>

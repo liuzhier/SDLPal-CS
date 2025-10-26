@@ -1,0 +1,39 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="DebugTools/DebugTools.csproj">
+    <Platform Solution="*|x64" Project="x64" />
+    <Platform Solution="*|x86" Project="x86" />
+  </Project>
+  <Project Path="E:/liuzhier/.NET/SDLPal-CS/Common/Common.csproj" Id="bdaa5865-bfa5-4e36-b536-6d28b67a73a9">
+    <Platform Solution="*|x64" Project="x64" />
+    <Platform Solution="*|x86" Project="x86" />
+  </Project>
+  <Project Path="E:/liuzhier/.NET/SDLPal-CS/EncodeSpirit/EncodeSpirit.csproj" Id="daf78b04-4cfd-47cb-ad91-f65a87ffde4a">
+    <Platform Solution="*|x64" Project="x64" />
+    <Platform Solution="*|x86" Project="x86" />
+  </Project>
+  <Project Path="E:/liuzhier/.NET/SDLPal-CS/ModLoader/ModLoader.csproj" Id="8f5026a9-3f99-41b9-a68c-0c33cd36c790">
+    <Platform Solution="*|x64" Project="x64" />
+    <Platform Solution="*|x86" Project="x86" />
+  </Project>
+  <Project Path="E:/liuzhier/.NET/SDLPal-CS/ModTools/ModTools.csproj" Id="c064d08e-5577-4871-ac29-c3ace1f46ef2">
+    <Platform Solution="*|x64" Project="x64" />
+    <Platform Solution="*|x86" Project="x86" />
+  </Project>
+  <Project Path="E:/liuzhier/.NET/SDLPal-CS/PalLibrary.Native/PalLibrary.Native.csproj" Id="c8dd691b-8a0c-4c80-93bf-49df8e306f91">
+    <Platform Solution="*|x64" Project="x64" />
+    <Platform Solution="*|x86" Project="x86" />
+  </Project>
+  <Project Path="E:/liuzhier/.NET/SDLPal-CS/SDLPal-CS/SDLPal-CS.csproj" Id="1b404aa9-03b8-41e4-9843-500a5a8bc824">
+    <Platform Solution="*|x64" Project="x64" />
+    <Platform Solution="*|x86" Project="x86" />
+  </Project>
+  <Project Path="PatchPackageTool/PatchPackageTool.csproj" Id="3e33e215-ce27-4126-8acc-124575155951">
+    <Platform Solution="*|x64" Project="x64" />
+    <Platform Solution="*|x86" Project="x86" />
+  </Project>
+</Solution>

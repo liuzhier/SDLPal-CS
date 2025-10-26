@@ -1,0 +1,52 @@
+<Project>
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <AvaloniaVersion>11.3.9</AvaloniaVersion>
+        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+        <ApplicationIcon>..\Resources\LOGO.ICO</ApplicationIcon>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <BaseOutputPath>..\Temp\bin</BaseOutputPath>
+        <BaseIntermediateOutputPath>..\Temp\obj\$(MSBuildProjectName)</BaseIntermediateOutputPath>
+        <PublishSingleFile>true</PublishSingleFile>
+        <PublishTrimmed>true</PublishTrimmed>
+        <PublishAot>true</PublishAot>
+        <Platforms>AnyCPU;x86;x64</Platforms>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Platform)' == 'x86'">
+        <DefineConstants>PLATFORM_X86</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Platform)' == 'x64'">
+        <DefineConstants>PLATFORM_X64</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Platform)'=='AnyCPU'">
+        <DefineConstants>ANYCPU</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <CompileDateTime>$([System.DateTime]::UtcNow) (UTC)</CompileDateTime>
+        <Semicolon>$([System.String]::new(";"))</Semicolon>
+    </PropertyGroup>
+
+    <Target Name="GenerateCompileTimeInfo" BeforeTargets="CoreCompile">
+        <ItemGroup>
+            <BuildInfoLines Include="internal static class BuildInfo" />
+            <BuildInfoLines Include="{" />
+            <BuildInfoLines Include="    public const string CompileDateTime = &quot;$(CompileDateTime)&quot;$(Semicolon)" />
+            <BuildInfoLines Include="}" />
+        </ItemGroup>
+        <WriteLinesToFile
+          File="$([System.IO.Path]::Combine('$(IntermediateOutputPath)','GeneratedVersion.cs'))"
+          Lines="@(BuildInfoLines)"
+          Overwrite="true" />
+    </Target>
+
+    <ItemGroup>
+        <Compile Include="$([System.IO.Path]::Combine('$(IntermediateOutputPath)','GeneratedVersion.cs'))" />
+    </ItemGroup>
+
+</Project>

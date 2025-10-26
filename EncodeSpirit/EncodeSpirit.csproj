@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <InvariantGlobalization>true</InvariantGlobalization>
+        <AssemblyName>PalEncodeSpirit</AssemblyName>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="SkiaSharp" Version="2.88.9" />
+      <PackageReference Include="SkiaSharp.NativeAssets.Win32" Version="2.88.9" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Common\Common.csproj" />
+    </ItemGroup>
+
+</Project>

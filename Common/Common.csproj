@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <RootNamespace></RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Avalonia" Version="11.3.9" />
+      <PackageReference Include="Avalonia.Desktop" Version="11.3.9" />
+      <PackageReference Include="Avalonia.Diagnostics" Version="11.3.9" />
+      <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.9" />
+      <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.9" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\PalLibrary.Native\PalLibrary.Native.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="AvaloniaControl\DataBox.axaml.cs">
+        <DependentUpon>DataBox.axaml</DependentUpon>
+      </Compile>
+      <Compile Update="AvaloniaControl\PathBox.axaml.cs">
+        <SubType>Code</SubType>
+        <DependentUpon>%(Filename)</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Avalonia\PathBox.axaml">
+        <SubType>Designer</SubType>
+      </None>
+    </ItemGroup>
+
+</Project>
