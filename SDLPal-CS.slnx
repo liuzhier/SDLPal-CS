@@ -1,0 +1,10 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Common/Common.csproj" Id="bdaa5865-bfa5-4e36-b536-6d28b67a73a9" />
+  <Project Path="ModTools/ModTools.csproj" Id="c064d08e-5577-4871-ac29-c3ace1f46ef2" />
+  <Project Path="SDLPal/SDLPal.csproj" Id="1b404aa9-03b8-41e4-9843-500a5a8bc824" />
+</Solution>

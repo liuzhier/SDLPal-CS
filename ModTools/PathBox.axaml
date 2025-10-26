@@ -1,0 +1,17 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="NaN" d:DesignHeight="NaN"
+             x:Class="ModTools.Ui.PathBox">
+    <Grid ColumnDefinitions="25*, 75*, Auto">
+        <Grid.Styles>
+            <Style Selector="Label, TextBox, Button">
+                <Setter Property="Foreground" Value="DeepPink"/>
+            </Style>
+        </Grid.Styles>
+        <Label x:Name="pathBoxLabel" Grid.Column="0" HorizontalAlignment="Right"></Label>
+        <TextBox x:Name="pathBoxTextBox" Grid.Column="1" Padding="6, 2"></TextBox>
+        <Button x:Name="pathBoxButton" Grid.Column="2" Padding="0">．．．</Button>
+    </Grid>
+</UserControl>
