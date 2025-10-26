@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <TargetFramework>net10.0</TargetFramework>
+        <RootNamespace></RootNamespace>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <PublishAot>true</PublishAot>
+        <InvariantGlobalization>true</InvariantGlobalization>
+        <AssemblyName>PalModTools</AssemblyName>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <BaseOutputPath>..\bin</BaseOutputPath>
+        <Platforms>AnyCPU;x86;x64</Platforms>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Folder Include="ModTools\Pack\" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Remove="bin\**" />
+        <EmbeddedResource Remove="bin\**" />
+        <None Remove="bin\**" />
+    </ItemGroup>
+
+    <Target Name="MirrorDependencyFolderWithRobocopy" BeforeTargets="Build">
+        <Exec Command="robocopy &quot;$(MSBuildThisFileDirectory)Dependency&quot; &quot;$(OutDir)Dependency&quot; /MIR /NFL /NDL /NJH /NJS" ContinueOnError="true" IgnoreExitCode="true" />
+    </Target>
+
+    <ItemGroup>
+        <None Include="$(OutDir)Dependency\**\*">
+            <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+            <Link>Dependency\%(RecursiveDir)%(Filename)%(Extension)</Link>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="SixLabors.ImageSharp" Version="3.1.12" />
+    </ItemGroup>
+
+</Project>
