@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <RootNamespace></RootNamespace>
+        <ApplicationManifest>..\app.manifest</ApplicationManifest>
+        <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+        <AssemblyName>PalModTools</AssemblyName>
+        <PublishAot>false</PublishAot>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+      <DefineConstants>$(DefineConstants);IS_DEMO</DefineConstants>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Content Include="Resources\LOGO.ICO" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Common\Common.csproj" />
+        <PackageReference Include="Avalonia" Version="11.3.9" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.3.9" />
+        <PackageReference Include="Avalonia.Diagnostics" Version="11.3.9" />
+        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.9" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.9" />
+    </ItemGroup>
+
+    <Target Name="MirrorDependencyFolderWithRobocopy" BeforeTargets="Build">
+        <Exec Command="robocopy &quot;$(MSBuildThisFileDirectory)Dependency&quot; &quot;$(OutDir)Dependency&quot; /MIR /NFL /NDL /NJH /NJS" ContinueOnError="true" IgnoreExitCode="true" />
+    </Target>
+
+    <ItemGroup>
+        <None Include="$(OutDir)Dependency\**\*">
+            <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+            <Link>Dependency\%(RecursiveDir)%(Filename)%(Extension)</Link>
+        </None>
+    </ItemGroup>
+
+    <Target Name="CopyNativeDllToPublishRoot" BeforeTargets="Publish">
+        <Copy SourceFiles="$(LibraryPath)" DestinationFiles="$(PublishDir)$(LibraryName)" />
+    </Target>
+
+</Project>

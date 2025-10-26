@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AssemblyName>PalModLoader</AssemblyName>
+        <OutputType>Library</OutputType>
+        <PublishSingleFile>false</PublishSingleFile>
+    </PropertyGroup>
+
+</Project>

@@ -1,0 +1,52 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:CommonCtrl="using:AvaloniaControl"
+        mc:Ignorable="d" x:Class="PatchPackageTool.MainWindow"
+        Width="800" Height="336"
+        MinWidth="800" MinHeight="336"
+        WindowStartupLocation="CenterScreen">
+    <Window.Styles>
+        <Style Selector="CommonCtrl|PathBox, CommonCtrl|DataBox">
+            <Setter Property="Margin" Value="0, 5, 0, 5" />
+            <Setter Property="FontSize" Value="24" />
+        </Style>
+        <Style Selector="Button[Name=Packing_Button]">
+            <Setter Property="Margin" Value="50, 0" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+        </Style>
+        <Style Selector="Label">
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+        <Style Selector="Grid > Border">
+            <Setter Property="Margin" Value="8, 4" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="Pink" />
+        </Style>
+    </Window.Styles>
+    <Grid>
+        <Grid x:Name="Options_Grid" RowDefinitions="Auto, Auto, Auto, *">
+            <CommonCtrl:AuthorNote Grid.Row="0" />
+            <Border Grid.Row="1">
+                <Grid RowDefinitions="*, *">
+                    <CommonCtrl:PathBox x:Name="PatchPath_PathBox" Grid.Row="0" Title="Patch Path" Text=".\pal" />
+                    <CommonCtrl:PathBox x:Name="PackagePath_PathBox" Grid.Row="1" Title="Package Path" Text="..\patches" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="2">
+                <Grid RowDefinitions="Auto, Auto, Auto, *" ColumnDefinitions="*, *">
+                    <CommonCtrl:DataBox x:Name="PatchName_PathBox" Grid.Row="0" Grid.Column="0" Title="Patch Name" Text="" />
+                    <CommonCtrl:DataBox x:Name="PatchVersion_PathBox" Grid.Row="0" Grid.Column="1" Title="Patch Version" Text="1.0.0" />
+                    <CommonCtrl:DataBox x:Name="Author_PathBox" Grid.Row="1" Grid.Column="0" Title="Author" Text="" FontSize="24" />
+                    <CommonCtrl:DataBox x:Name="Description_PathBox" Grid.Row="1" Grid.Column="1" Title="Description" Text="1.0.0" />
+                    <CommonCtrl:DataBox x:Name="Compatibility_PathBox" Grid.Row="2" Grid.Column="0" Title="Compatibility" Text="" />
+                    <Button x:Name="Packing_Button" Grid.Row="2" Grid.Column="1" Click="Packing_Button_Click">Packing</Button>
+                </Grid>
+            </Border>
+        </Grid>
+        <CommonCtrl:MessageBox x:Name="MsgBox" Background="#9FFFC0CB" IsVisible="False" Click="MsgBox_Click" />
+    </Grid>
+</Window>
