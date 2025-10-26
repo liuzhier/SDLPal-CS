@@ -1,0 +1,38 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="ModTools.MessageBox">
+    <Grid x:Name="MsgBox_Grid" RowDefinitions="1*, Auto 1*" ColumnDefinitions="1*, 5*, 1*">
+        <Border Grid.Row="1" Grid.Column="1" Background="white" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid RowDefinitions="1*, *, 1*">
+                <Grid.Styles>
+                    <Style Selector="Label, Button">
+                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        <Setter Property="VerticalContentAlignment" Value="Center" />
+                        <Setter Property="FontSize" Value="22" />
+                        <Setter Property="Background" Value="Pink" />
+                        <Setter Property="Foreground" Value="DeepPink" />
+                    </Style>
+                    <Style Selector="TextBlock">
+                        <Setter Property="FontSize" Value="22" />
+                        <Setter Property="Foreground" Value="Purple" />
+                        <Setter Property="Margin" Value="18" />
+                    </Style>
+                    <Style Selector="Button">
+                        <Setter Property="HorizontalAlignment" Value="Stretch" />
+                        <Setter Property="VerticalAlignment" Value="Stretch" />
+                        <Setter Property="Margin" Value="6" />
+                        <Setter Property="Foreground" Value="Red" />
+                    </Style>
+                </Grid.Styles>
+                <Label x:Name="MsgBox_Label" Grid.Row="0"></Label>
+                <TextBlock x:Name="MsgBox_TextBlock" TextWrapping="Wrap" Grid.Row="1"></TextBlock>
+                <Grid Grid.Row="2" ColumnDefinitions="3*, 3*, 3*">
+                    <Button x:Name="MsgBox_OK_Button" Grid.Column="1"></Button>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

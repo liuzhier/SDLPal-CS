@@ -1,0 +1,141 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="using:ModTools"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="ModTools.MainWindow"
+        WindowStartupLocation="CenterScreen"
+        MinWidth="800" MinHeight="600"
+        Width="800" Height="600"
+        Title="Pal Mod Tools">
+    <Grid>
+        <Grid.Styles>
+            <Style Selector="Label">
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+            </Style>
+            <Style Selector="Grid > Border">
+                <Setter Property="Margin" Value="8, 4" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="BorderBrush" Value="Pink" />
+            </Style>
+        </Grid.Styles>
+        <Grid RowDefinitions="Auto, Auto, Auto, *">
+            <Border Grid.Row="0">
+                <Grid RowDefinitions="34*, 33*, 33*">
+                    <Label Grid.Row="0" Foreground="Red">Author's Note</Label>
+                    <Label Grid.Row="1" Foreground="Purple">This game mod tool is completely free. It is strictly prohibited to use it for commercial purposes.</Label>
+                    <Label Grid.Row="2" Foreground="Purple">Otherwise, the consequences will be borne by yourself! The author assumes no responsibility for any consequences!</Label>
+                </Grid>
+            </Border>
+            <Grid x:Name="pathOption_Grid" Grid.Row="1">
+                <Border Grid.Row="0">
+                    <Grid RowDefinitions="3*, 3*, 3*">
+                        <Grid.Styles>
+                            <Style Selector="local|PathBox">
+                                <Setter Property="Margin" Value="0, 5, 0, 5" />
+                            </Style>
+                        </Grid.Styles>
+                        <local:PathBox x:Name="GamePath_PathBox" Grid.Row="0" Title="Game Path" Text=".\" FontSize="24" />
+                        <local:PathBox x:Name="ModPath_PathBox" Grid.Row="1" Title="Mod Path" Text=".\" FontSize="24" />
+                        <local:PathBox x:Name="CompiledPath_PathBox" Grid.Row="2" Title="Compiled Path" Text=".\" FontSize="24" />
+                    </Grid>
+                </Border>
+            </Grid>
+            <Grid x:Name="functionOption_Grid" Grid.Row="2" ColumnDefinitions="8*, 2*">
+                <Grid.Styles>
+                    <Style Selector="Grid > Label">
+                        <Setter Property="Foreground" Value="DeepPink" />
+                    </Style>
+                    <Style Selector="Grid > Button">
+                        <Setter Property="HorizontalAlignment" Value="Stretch" />
+                        <Setter Property="VerticalAlignment" Value="Stretch" />
+                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        <Setter Property="VerticalContentAlignment" Value="Center" />
+                        <Setter Property="Margin" Value="6" />
+                    </Style>
+                </Grid.Styles>
+                <Border Grid.Column="0">
+                    <Grid RowDefinitions="1.8*, 8.2*">
+                        <Grid.Styles>
+                            <Style Selector="Grid > CheckBox">
+                                <Setter Property="IsChecked" Value="True" />
+                            </Style>
+                        </Grid.Styles>
+                        <Label Grid.Row="0">Compilation options</Label>
+                        <Grid Grid.Row="1" ColumnDefinitions="4*, 4*, 2*">
+                            <Border Grid.Column="0">
+                                <Grid Grid.Column="2" RowDefinitions="1.8*, 8.2*">
+                                    <Label Grid.Row="0">Database</Label>
+                                    <Grid Grid.Row="1" ColumnDefinitions="1.2*, 1*" RowDefinitions="1*, 1*, 1*">
+                                        <CheckBox x:Name="BaseData_CheckBox" Grid.Row="0" Grid.Column="0" IsEnabled="False">Base Data</CheckBox>
+                                        <CheckBox x:Name="Palette_CheckBox" Grid.Row="0" Grid.Column="1">Palette</CheckBox>
+                                        <CheckBox x:Name="CoreData_CheckBox" Grid.Row="1" Grid.Column="0">Core Data</CheckBox>
+                                        <CheckBox x:Name="MapAndTile_CheckBox" Grid.Row="1" Grid.Column="1">Map/Tile</CheckBox>
+                                        <CheckBox x:Name="MusicAndVoice_CheckBox" Grid.Row="2" Grid.Column="0">Music/Voice</CheckBox>
+                                    </Grid>
+                                </Grid>
+                            </Border>
+                            <Border Grid.Column="1">
+                                <Grid Grid.Column="2" RowDefinitions="1.8*, 8.2*">
+                                    <Label Grid.Row="0">Image</Label>
+                                    <Grid Grid.Row="1" ColumnDefinitions="1.2*, 1*" RowDefinitions="1*, 1*, 1*, 1*">
+                                        <CheckBox x:Name="Enemy_CheckBox" Grid.Row="0" Grid.Column="0" IsEnabled="False">Enemy(Fight)</CheckBox>
+                                        <CheckBox x:Name="Item_CheckBox" Grid.Row="0" Grid.Column="1">Item</CheckBox>
+                                        <CheckBox x:Name="Hero_CheckBox" Grid.Row="1" Grid.Column="0">Hero(Fight)</CheckBox>
+                                        <CheckBox x:Name="Avatar_CheckBox" Grid.Row="1" Grid.Column="1">Avatar</CheckBox>
+                                        <CheckBox x:Name="Magic_CheckBox" Grid.Row="2" Grid.Column="0" IsEnabled="False">Magic(Fight)</CheckBox>
+                                        <CheckBox x:Name="Animation_CheckBox" Grid.Row="2" Grid.Column="1">Animation</CheckBox>
+                                        <CheckBox x:Name="Background_CheckBox" Grid.Row="3" Grid.Column="0">Background</CheckBox>
+                                        <CheckBox x:Name="UiAndAction_CheckBox" Grid.Row="3" Grid.Column="1" IsEnabled="False">Ui/Action</CheckBox>
+                                    </Grid>
+                                </Grid>
+                            </Border>
+                            <Grid Grid.Column="2" RowDefinitions="3*, 1*, 1*">
+                                <Grid.Styles>
+                                    <Style Selector="Grid > Button">
+                                        <Setter Property="Padding" Value="0" />
+                                    </Style>
+                                    <Style Selector="Grid > RadioButton">
+                                        <Setter Property="Padding" Value="4, 0, 0, 0" />
+                                    </Style>
+                                </Grid.Styles>
+                                <Border Grid.Row="0">
+                                    <Grid RowDefinitions="1*, 1*, 1*">
+                                        <Label Grid.Row="0">Version</Label>
+                                        <RadioButton x:Name="Version_RadioButton" Grid.Row="1" IsChecked="True">PAL-DOS</RadioButton>
+                                        <RadioButton Grid.Row="2">PAL-WIN</RadioButton>
+                                    </Grid>
+                                </Border>
+                                <Button x:Name="SelectAll_Button" Grid.Row="1">Select All</Button>
+                                <Button x:Name="Compile_Button" Grid.Row="2">Compile</Button>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <Grid Grid.Column="1" RowDefinitions="2*, 1*">
+                    <Border Grid.Row="0">
+                        <Grid RowDefinitions="1*, 1*">
+                            <Label Grid.Row="0">Unpacking Options</Label>
+                            <Button x:Name="UnpackButton" Grid.Row="1">Unpack</Button>
+                        </Grid>
+                    </Border>
+                    <Border Grid.Row="1">
+                        <Grid RowDefinitions="1*, 1*">
+                            <Label Grid.Row="0">Author</Label>
+                            <Label Grid.Row="1" FontSize="20" Foreground="#FF8080">Chunxiao Li</Label>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Grid>
+            <Border Grid.Row="3">
+                <Grid RowDefinitions="Auto, 10*">
+                    <Label Grid.Row="0" Foreground="DeepPink">Console Log</Label>
+                    <TextBox x:Name="LogBox_TextBox" Grid.Row="1" FontSize="20" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Visible"></TextBox>
+                </Grid>
+            </Border>
+        </Grid>
+        <local:MessageBox x:Name="MsgBox" Background="#9FFFC0CB" IsVisible="False" />
+    </Grid>
+</Window>
