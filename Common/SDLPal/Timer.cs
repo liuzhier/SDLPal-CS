@@ -1,0 +1,34 @@
+using SDL3;
+
+namespace SDLPal;
+
+public static class PalTimer
+{
+    public static bool CheakTimeOut(ulong begin, ulong time) => time <= 0 || ((SDL.GetTicks() - begin) < time);
+
+    public static bool TicksPass(ulong lastTime, ulong nowTime) => (int)(nowTime - lastTime) <= 0;
+
+    public static void DelayUntil(ulong time, uint dwDelayStep = 1)
+    {
+        PalInput.ProcessEvent();
+
+        while (!TicksPass(SDL.GetTicks(), time))
+        {
+            PalInput.ProcessEvent();
+            SDL.Delay(dwDelayStep);
+        }
+    }
+
+    public static void DelayUntilPC(double dflTime, uint dwDelayStep = 1)
+    {
+        PalInput.ProcessEvent();
+
+        while (SDL.GetPerformanceCounter() < dflTime)
+        {
+            PalInput.ProcessEvent();
+            SDL.Delay(dwDelayStep);
+        }
+    }
+
+    public static void Delay(int ms, uint dwDelayStep = 1) => DelayUntil(SDL.GetTicks() + (uint)ms, dwDelayStep);
+}

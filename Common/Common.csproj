@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <RootNamespace></RootNamespace>
+        <NoWarn>CS8500</NoWarn>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Sdcb.FFmpeg" Version="7.0.0" />
+        <PackageReference Include="Sdcb.FFmpeg.runtime.windows-x64" Version="7.1.0" />
+        <PackageReference Include="SDL3-CS" Version="3.5.0-preview.20260205-174352" />
+        <PackageReference Include="SDL3-CS.Native" Version="3.5.0-preview.20260205-174353" />
+        <PackageReference Include="SDL3-CS.Native.Image" Version="3.5.0" />
+        <PackageReference Include="SDL3-CS.Native.TTF" Version="3.2.2" />
+        <PackageReference Include="SDL3-CS.Native.Mixer" Version="3.1.3-preview.20260205-174355" />
+        <PackageReference Include="SkiaSharp" Version="3.119.2" />
+        <PackageReference Include="Vanara.PInvoke.User32" Version="5.0.0" />
+    </ItemGroup>
+
+</Project>

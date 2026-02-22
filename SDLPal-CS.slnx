@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="AvaloniaCtrl/AvaloniaCtrl.csproj" Id="fe224bfe-7e94-4205-b8a9-b89016eaa60d" />
+  <Project Path="Common/Common.csproj" />
+  <Project Path="ModTools/ModTools.csproj" Id="7bdef307-e60c-40b9-be21-a2785a6085cf" />
+  <Project Path="SDLPal-CS/SDLPal-CS.csproj" />
+</Solution>
